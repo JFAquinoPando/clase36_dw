@@ -18,5 +18,13 @@
 
 
     //print_r($json);
+    $jsonText = json_encode($json);
+    echo $jsonText;
 
-    echo json_encode($json);
+    $fp = fopen("file.json", "w");
+    /* while (!feof($fp)) {
+        $linea = fgets($fp);
+        echo $linea . "<br>";
+    } */
+    fwrite($fp, $jsonText . PHP_EOL);
+    fclose($fp);
